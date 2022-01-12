@@ -14,7 +14,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${username}`);
+      const res = await axios.get(`https://mern-social-backend-karan.herokuapp.com/users?username=${username}`);
       setUser(res.data);
     };
     fetchUser();
@@ -32,8 +32,7 @@ export default function Profile() {
                 className="profileCoverImg"
                 src={
                   user.coverPicture
-                    ? user.coverPicture
-                    :  "person/noCover.png"
+                    
                 }
                 alt=""
               />
@@ -41,8 +40,7 @@ export default function Profile() {
                 className="profileUserImg"
                 src={
                   user.profilePicture
-                    ?  user.profilePicture
-                    :  "/person/noAvatar.png"
+                    
                 }
                 alt=""
               />

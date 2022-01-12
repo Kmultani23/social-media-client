@@ -18,7 +18,7 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id);
+        const friendList = await axios.get("https://mern-social-backend-karan.herokuapp.com/users/friends/" + user._id);
         setFriends(friendList.data);
       } catch (err) {
         console.log(err);
@@ -35,7 +35,7 @@ export default function Rightbar({ user }) {
         });
         dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
-        await axios.put(`/users/${user._id}/follow`, {
+        await axios.put(`https://mern-social-backend-karan.herokuapp.com/users/${user._id}/follow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "FOLLOW", payload: user._id });
